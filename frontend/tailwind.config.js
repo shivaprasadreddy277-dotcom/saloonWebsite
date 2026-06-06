@@ -8,29 +8,32 @@ export default {
     extend: {
       colors: {
         slate: {
-          DEFAULT: '#070709',
-          light: '#0d0d12',
-          card: '#121217',
-          border: '#1c1c24',
+          DEFAULT: '#0D0D0D',
+          light: '#12122A',
+          card: '#1A1A2E',
+          border: 'rgba(212, 175, 55, 0.15)',
+          sidebar: '#0F0F23',
+          input: '#1E1E3A',
         },
         gold: {
-          light: '#f6e6dc',
-          DEFAULT: '#dca587',
-          dark: '#b57756',
-          cream: '#fdf9f6',
+          light: '#F5F5F5',
+          DEFAULT: '#D4AF37',
+          hover: '#FFD700',
+          secondary: '#F5A623',
+          silver: '#A8A8B3',
         },
       },
       fontFamily: {
         serif: ['"Playfair Display"', 'serif'],
-        sans: ['"Outfit"', 'sans-serif'],
+        sans: ['"DM Sans"', 'sans-serif'],
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(135deg, #b57756 0%, #dca587 50%, #f6e6dc 100%)',
-        'dark-gradient': 'linear-gradient(180deg, #121217 0%, #070709 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #F5A623 100%)',
+        'dark-gradient': 'linear-gradient(180deg, #12122A 0%, #0D0D0D 100%)',
       },
       boxShadow: {
-        'gold-glow': '0 0 15px rgba(220, 165, 135, 0.15)',
-        'gold-glow-lg': '0 0 25px rgba(220, 165, 135, 0.25)',
+        'gold-glow': '0 0 20px rgba(212, 175, 55, 0.15)',
+        'gold-glow-lg': '0 0 30px rgba(212, 175, 55, 0.25)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',

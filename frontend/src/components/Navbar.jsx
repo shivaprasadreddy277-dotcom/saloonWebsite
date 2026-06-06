@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Menu, X, Scissors, Calendar, Shield, LogOut, User, LayoutDashboard, Settings } from 'lucide-react';
+import { Menu, X, Scissors, Calendar, Shield, LogOut, User, LayoutDashboard } from 'lucide-react';
 
 export const Navbar = () => {
   const { user, logout, isAdmin } = useAuth();
@@ -21,18 +21,18 @@ export const Navbar = () => {
     `px-3 py-2 rounded-md text-sm font-medium transition duration-200 ${
       isActive(path)
         ? 'text-gold border-b-2 border-gold rounded-none'
-        : 'text-gray-300 hover:text-gold'
+        : 'text-zinc-400 hover:text-gold'
     }`;
 
   const mobileLinkClass = (path) =>
     `block px-3 py-2 rounded-md text-base font-medium ${
       isActive(path)
-        ? 'bg-zinc-800 text-gold'
-        : 'text-gray-300 hover:bg-zinc-800 hover:text-gold'
+        ? 'bg-slate-input text-gold'
+        : 'text-zinc-400 hover:bg-slate-input hover:text-gold'
     }`;
 
   return (
-    <nav className="sticky top-0 z-40 bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+    <nav className="sticky top-0 z-40 bg-slate-light/95 backdrop-blur-md border-b border-slate-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -82,33 +82,33 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center gap-4">
             {user ? (
               <div className="flex items-center gap-4">
-                <div className="flex items-center gap-2 text-sm text-gray-300">
+                <div className="flex items-center gap-2 text-sm text-[#F5F5F5]">
                   {isAdmin ? (
-                    <span className="flex items-center gap-1 px-2 py-1 bg-gold/15 text-gold border border-gold/30 rounded-full text-xs font-semibold">
+                    <span className="flex items-center gap-1 px-2.5 py-1 bg-gold/10 text-gold border border-gold/30 rounded-full text-xs font-semibold">
                       <Shield size={12} /> Owner
                     </span>
                   ) : (
-                    <span className="flex items-center gap-1 px-2 py-1 bg-zinc-800 rounded-full text-xs text-gray-400">
-                      <User size={12} /> {user.name.split(' ')[0]}
+                    <span className="flex items-center gap-1 px-2.5 py-1 bg-slate-input rounded-full text-xs text-gold-silver">
+                      <User size={12} className="text-gold" /> {user.name.split(' ')[0]}
                     </span>
                   )}
                 </div>
                 <Link
                   to="/profile"
-                  className="px-3 py-1.5 rounded text-sm font-medium text-gray-300 hover:text-gold hover:bg-zinc-900 border border-zinc-800 hover:border-gold transition duration-200"
+                  className="px-3.5 py-1.5 rounded-lg text-sm font-medium text-[#A8A8B3] hover:text-gold hover:bg-slate-input border border-slate-border transition duration-200"
                 >
                   Profile
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-1 px-3 py-1.5 text-sm font-medium text-gray-400 hover:text-red-400 hover:bg-zinc-900 border border-zinc-800 hover:border-red-900/50 rounded-md transition duration-200"
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 text-sm font-medium text-red-400 hover:text-red-300 hover:bg-zinc-950 border border-slate-border rounded-lg transition duration-200"
                 >
                   <LogOut size={14} /> Logout
                 </button>
                 {!isAdmin && (
                   <Link
                     to="/book"
-                    className="px-4 py-2 rounded bg-gold-gradient text-black font-semibold text-sm hover:scale-105 shadow-gold-glow hover:shadow-gold-glow-lg transition duration-300"
+                    className="px-5 py-2 rounded bg-gold-gradient text-black font-extrabold text-xs uppercase tracking-wider hover:scale-[1.03] shadow-gold-glow hover:shadow-gold-glow-lg transition duration-300 animate-pulse-slow"
                   >
                     Book Now
                   </Link>
@@ -118,13 +118,13 @@ export const Navbar = () => {
               <div className="flex items-center gap-4">
                 <Link
                   to="/login"
-                  className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-gold transition duration-200"
+                  className="px-4 py-2 text-sm font-semibold text-[#A8A8B3] hover:text-gold transition duration-200"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/book"
-                  className="px-4 py-2 rounded bg-gold-gradient text-black font-semibold text-sm hover:scale-105 shadow-gold-glow hover:shadow-gold-glow-lg transition duration-300"
+                  className="px-5 py-2 rounded bg-gold-gradient text-black font-extrabold text-xs uppercase tracking-wider hover:scale-[1.03] shadow-gold-glow hover:shadow-gold-glow-lg transition duration-300"
                 >
                   Book Now
                 </Link>
@@ -136,7 +136,7 @@ export const Navbar = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gold hover:bg-zinc-900 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#A8A8B3] hover:text-gold hover:bg-slate-input focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -146,7 +146,7 @@ export const Navbar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-zinc-950 border-b border-zinc-800 animate-fade-in">
+        <div className="md:hidden bg-[#12122A] border-b border-slate-border animate-fade-in">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link to="/" onClick={() => setIsOpen(false)} className={mobileLinkClass('/')}>Home</Link>
             <Link to="/services" onClick={() => setIsOpen(false)} className={mobileLinkClass('/services')}>Services</Link>
@@ -164,17 +164,17 @@ export const Navbar = () => {
             )}
 
             {user ? (
-              <div className="pt-4 pb-2 border-t border-zinc-800 mt-4">
+              <div className="pt-4 pb-2 border-t border-slate-border mt-4">
                 <div className="flex items-center px-3 mb-3">
                   <div className="text-base font-medium text-white">{user.name}</div>
-                  <div className="ml-3 text-sm font-medium text-gray-400">({user.role})</div>
+                  <div className="ml-3 text-sm font-medium text-gold">({user.role})</div>
                 </div>
                 
                 {!isAdmin && (
                   <Link
                     to="/profile"
                     onClick={() => setIsOpen(false)}
-                    className="block text-left px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-zinc-800 hover:text-gold transition"
+                    className="block text-left px-3 py-2 rounded-md text-base font-medium text-zinc-300 hover:bg-slate-input hover:text-gold transition"
                   >
                     Profile
                   </Link>
@@ -183,7 +183,7 @@ export const Navbar = () => {
                   <Link
                     to="/book"
                     onClick={() => setIsOpen(false)}
-                    className="block text-center w-full px-4 py-2 mt-2 rounded bg-gold text-black font-bold text-sm"
+                    className="block text-center w-full px-4 py-2 mt-2 rounded bg-gold-gradient text-black font-bold text-sm"
                   >
                     Book Appointment
                   </Link>
@@ -191,24 +191,24 @@ export const Navbar = () => {
 
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-400 hover:bg-zinc-800 transition"
+                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-400 hover:bg-slate-input transition"
                 >
                   Logout
                 </button>
               </div>
             ) : (
-              <div className="pt-4 pb-2 border-t border-zinc-800 mt-4 space-y-2">
+              <div className="pt-4 pb-2 border-t border-slate-border mt-4 space-y-2">
                 <Link
                   to="/login"
                   onClick={() => setIsOpen(false)}
-                  className="block text-center w-full px-4 py-2 rounded border border-zinc-800 text-gray-300 font-semibold text-sm hover:text-gold"
+                  className="block text-center w-full px-4 py-2 rounded border border-slate-border text-gray-300 font-semibold text-sm hover:text-gold"
                 >
                   Sign In
                 </Link>
                 <Link
                   to="/book"
                   onClick={() => setIsOpen(false)}
-                  className="block text-center w-full px-4 py-2 rounded bg-gold text-black font-semibold text-sm"
+                  className="block text-center w-full px-4 py-2 rounded bg-gold-gradient text-black font-semibold text-sm"
                 >
                   Book Appointment
                 </Link>
