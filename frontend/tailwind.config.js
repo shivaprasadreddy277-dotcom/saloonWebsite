@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         slate: {
-          DEFAULT: '#0c0c0f',
-          light: '#16161d',
-          card: '#1e1e26',
-          border: '#2b2b38',
+          DEFAULT: '#070709',
+          light: '#0d0d12',
+          card: '#121217',
+          border: '#1c1c24',
         },
         gold: {
-          light: '#f1e2b3',
-          DEFAULT: '#d4af37',
-          dark: '#aa7c11',
-          cream: '#fdfbf7',
+          light: '#f6e6dc',
+          DEFAULT: '#dca587',
+          dark: '#b57756',
+          cream: '#fdf9f6',
         },
       },
       fontFamily: {
@@ -25,12 +25,12 @@ export default {
         sans: ['"Outfit"', 'sans-serif'],
       },
       backgroundImage: {
-        'gold-gradient': 'linear-gradient(135deg, #aa7c11 0%, #d4af37 50%, #f1e2b3 100%)',
-        'dark-gradient': 'linear-gradient(180deg, #121212 0%, #0a0a0a 100%)',
+        'gold-gradient': 'linear-gradient(135deg, #b57756 0%, #dca587 50%, #f6e6dc 100%)',
+        'dark-gradient': 'linear-gradient(180deg, #121217 0%, #070709 100%)',
       },
       boxShadow: {
-        'gold-glow': '0 0 15px rgba(212, 175, 55, 0.15)',
-        'gold-glow-lg': '0 0 25px rgba(212, 175, 55, 0.25)',
+        'gold-glow': '0 0 15px rgba(220, 165, 135, 0.15)',
+        'gold-glow-lg': '0 0 25px rgba(220, 165, 135, 0.25)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out forwards',
